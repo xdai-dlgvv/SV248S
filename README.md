@@ -1,9 +1,12 @@
 # Single Object Tracking Dataset - SV248S
 The data in proposed dataset is derived from the [Jilin-1 Video Satellite](http://www.jl1.cn/EWeb/). The resolution of the video is about 0.92 meter. The video captured by the Satellite is 10 FPS however the video we used in this dataset is 25 FPS. The reason is that these open-souce official video are re-encoded with Video Frame Interpolation (VFI). In order to avoid this bad influence on the target pixels as much as possible, we selected 248 good targets which have less effected by VFI from 6 videos.
 
-The dataset (53.1GB) is free and open-source but only availabe for non-commercial use. The detail description of this dataset is presented in "**Deep Learning-Based Object Tracking in Satellite Videos: A Comprehensive Survey With a New Dataset**". This dataset was finished at July 2021 by [IPIU Lab](https://ipiu.xidian.edu.cn/) (*Key Laboratory of Intelligent Perception and Image Understanding of Ministry of Education*) of Xidian University.
+The dataset (53.1GB) is free and open-source but only availabe for non-commercial use. The detail description of this dataset is presented in "**[Deep Learning-Based Object Tracking in Satellite Videos: A Comprehensive Survey With a New Dataset](https://ieeexplore.ieee.org/document/9875020)**". This dataset was finished at July 2021 by [IPIU Lab](https://ipiu.xidian.edu.cn/) (*Key Laboratory of Intelligent Perception and Image Understanding of Ministry of Education*) of Xidian University.
 
 This tentative dataset also provides a mask-level annotation criterion for small targets, which is quite different from the oriented BBox. The target and its background are splited by a tight-polygon containing a series of points. The six videos used in this dataset have different tracking environment, and you can split them into train/val/test set according to your experiment propose.
+
+**Got the SV248S dataset**
+Please 
 
 The files are arranged by the following structure:
 ``` shell
@@ -77,6 +80,9 @@ These attributes have special meanings, listed below:
 - **[CO]** ***Continuous Occlusion***: STO or LTO occur twice or more times in a sequence.
 - **[BCL]** ***Background Cluster***: There are at least ten frames that contain the INV flag.
 - **[IPR]** ***In-Plane Rotation***: The object has an in-plane rotation at an angle greater than or equal to 30 degrees.
+
+## Get SV248S
+Please send E-mail to us with your school or origination name: liyuxuan_xidian@126.com, and we will give you a private link of Cloud Drive.
 
 ## Cite This
 If this work is helpful for your research, please cite with:
