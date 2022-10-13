@@ -5,9 +5,6 @@ The dataset (53.1GB) is free and open-source but only availabe for non-commercia
 
 This tentative dataset also provides a mask-level annotation criterion for small targets, which is quite different from the oriented BBox. The target and its background are splited by a tight-polygon containing a series of points. The six videos used in this dataset have different tracking environment, and you can split them into train/val/test set according to your experiment propose.
 
-**Got the SV248S dataset**
-Please 
-
 The files are arranged by the following structure:
 ``` shell
 - 01
