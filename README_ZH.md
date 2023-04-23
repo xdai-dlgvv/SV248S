@@ -1,11 +1,14 @@
-# Single Object Tracking Dataset - SV248S
-The data in proposed dataset is derived from the [Jilin-1 Video Satellite](http://www.jl1.cn/EWeb/). The resolution of the video is about 0.92 meter. The video captured by the Satellite is 10 FPS however the video we used in this dataset is 25 FPS. The reason is that these open-souce official video are re-encoded with Video Frame Interpolation (VFI). In order to avoid this bad influence on the target pixels as much as possible, we selected 248 good targets which have less effected by VFI from 6 videos.
 
-The dataset (53.1GB) is free and open-source but only availabe for non-commercial use. The detail description of this dataset is presented in "**[Deep Learning-Based Object Tracking in Satellite Videos: A Comprehensive Survey With a New Dataset](https://ieeexplore.ieee.org/document/9875020)**". This dataset was finished at July 2021 by [IPIU Lab](https://ipiu.xidian.edu.cn/) (*Key Laboratory of Intelligent Perception and Image Understanding of Ministry of Education*) of Xidian University.
+[**English**](./README_EN.md) | [**中文**](./README_CN.md)
 
-This tentative dataset also provides a mask-level annotation criterion for small targets, which is quite different from the oriented BBox. The target and its background are splited by a tight-polygon containing a series of points. The six videos used in this dataset have different tracking environment, and you can split them into train/val/test set according to your experiment propose.
+# Single Object Tracking Dataset - SV248S [翻译中]
+建议数据集中的数据来源于[吉林一号视频卫星](http://www.jl1.cn/EWeb/)。 视频的分辨率约为0.92米。 卫星捕获的视频是 10 FPS，但我们在此数据集中使用的视频是 25 FPS。 原因是这些开源的官方视频是用视频帧插值（VFI）重新编码的。 为了尽可能避免这种对目标像素的不良影响，我们从6个视频中选择了248个受VFI影响较小的好目标。
 
-The files are arranged by the following structure:
+数据集 (53.1GB) 是免费和开源的，但仅可用于非商业用途。 该数据集的详细描述见“**[Deep Learning-Based Object Tracking in Satellite Videos: A Comprehensive Survey With a New Dataset](https://ieeexplore.ieee.org/document/9875020)**”。 该数据集由西安电子科技大学[IPIU实验室](https://ipiu.xidian.edu.cn/)（*智能感知与图像理解教育部重点实验室*）于2021年7月完成。
+
+这个数据集还为小目标提供了蒙版级别的标注标准，这与旋转包围框有很大不同。 目标及其背景被一系列点的紧密多边形进行区分。 该数据集中使用的六个视频具有不同的跟踪环境，您可以根据您的实验将它们拆分为训练/验证/测试集。由于目标数量并不多，因此在本论文以及后续的延伸工作中，建议作为单目标跟踪的测试集。
+
+这些文件按以下结构排列：
 ``` shell
 - 01
 |---- sequences
@@ -28,28 +31,28 @@ The files are arranged by the following structure:
 ```
 
 **FILE DIFINATION**
-- tiff: frame images for a sequences, these frames are cropped with the same size for a sequence, and their names start from "000001".
-- abs: a json file that give a short description of the source video and target information. An example is given by:
+- tiff: 一个序列的帧图像，这些帧被裁剪成一个序列的相同大小，它们的名字从 "000001".
+- abs: 一个 json 文件，它给出了源视频和目标信息的简短描述。 一个例子是由:
 ```json
 {
     "source_info":{
-        "video_id": "01",      # the source video name
-        "seq_id": "000002",    # current target sequence name
-        "frame_range": [],     # the frame range used relative to original video
-        "crop_range": []       # the cropped patch range relative to original video
+        "video_id": "01",      # 源视频的名称
+        "seq_id": "000002",    # 当前目标的名称
+        "frame_range": [],     # 相对于原始视频使用的帧范围
+        "crop_range": []       # 相对于原始视频的裁剪块的范围
     },
     "details":{
-        "init_rect": [],       # the initialize bounding box
-        "init_poly": [],       # the initialize tight-polygon
-        "length": 325,         # the total length of this sequence
-        "class_name": "ship",  # ship, plane, car, car-large  (these names are different with the survey)
+        "init_rect": [],       # 初始化边界框
+        "init_poly": [],       # 初始化的紧致多边形
+        "length": 325,         # 序列的总长度
+        "class_name": "ship",  # ship, plane, car, car-large  (这些名称与论文中不同)
         "level": "simple"      # simple, normal, hard
     }
 }
 ```
-***Notice: the class names in survey are different from this json file.*** `ship -> ship, airplane -> plane, vehicle -> car, large-vehicle -> car-large`
+***注意：论文中的类名与这个 json 文件不同.*** `ship -> ship, airplane -> plane, vehicle -> car, large-vehicle -> car-large`
 
-- attr: the sequence attribute file, saved in csv format.
+- attr: 序列属性文件，保存为csv格式
 - state: the frame flag file, 0 for normal visiable, 1 for invisiable (background cluster), 2 for occlusion
 - rect: the annotated target which is represented by upright bounding boxes with (left_top_x, left_top_y, width, height).
 - poly: the annotated target which is represented by mask-level polygon with multiple pairs of points, like: ((x1,y0), (x2, y2), ...)
@@ -93,4 +96,5 @@ If this work is helpful for your research, please cite with:
   number={4},
   pages={181-212},
   doi={10.1109/MGRS.2022.3198643}}
+
 ```
