@@ -72,17 +72,42 @@
 
 ## 相关论文
 ### SOT
+
+1. A Quantum Evolutionary Learning Tracker for Video  
+  [[Paper]](https://ieeexplore.ieee.org/abstract/document/10092876)  No code  
+  发表刊物: IEEE Transactions on Evolutionary Computation , 2023
+
+1. **SiamMDM**: An Adaptive Fusion Network With Dynamic Template for Real-Time Satellite Video Single Object Tracking  
+  [[Paper]](https://ieeexplore.ieee.org/abstract/document/10113336)  No code  
+  发表刊物: IEEE Transactions on Geoscience and Remote Sensing, 2023
+
+29. Object Tracking Based on Satellite Videos: A Literature Review  
+  [[Paper]](https://www.mdpi.com/2072-4292/14/15/3674)  No code  
+  发表刊物: Remote Sens, 2022
+  
+31. Object Tracking in Satellite Videos Based on Improved Kernel Correlation Filter Assisted by Road Information  
+  [[Paper]](https://www.mdpi.com/2072-4292/14/17/4215)  No code  
+  发表刊物: Remote Sens, 2022
+  
+35. Vehicle Tracking on Satellite Video Based on Historical Model  
+  [[Paper]](https://ieeexplore.ieee.org/abstract/document/9847077)  No code  
+  发表刊物: IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, 2022
+  
+39. Object Tracking in Satellite Videos: A Spatial-Temporal Regularized Correlation Filter Tracking Method With Interacting Multiple Model  
+  [[Paper]](https://ieeexplore.ieee.org/abstract/document/9786761)  No code  
+  发表刊物: IEEE Geoscience and Remote Sensing Letters, 2022
+  
+41. Object Tracking in Satellite Videos: Correlation Particle Filter Tracking Method With Motion Estimation by Kalman Filter  
+  [[Paper]](https://ieeexplore.ieee.org/abstract/document/9875357)  No code  
+  发表刊物: IEEE Transactions on Geoscience and Remote Sensing, 2022
+  
+43. Object Tracking in Satellite Videos Based on Siamese Network With Multidimensional Information-Aware and Temporal Motion Compensation  
+  [[Paper]](https://ieeexplore.ieee.org/abstract/document/9908539)  No code  
+  发表刊物: IEEE Geoscience and Remote Sensing Letters, 2022
+
 1. **HRSiam**: High-Resolution Siamese Network, Towards Space-Borne Satellite Video Tracking  
   [[Paper]](https://ieeexplore.ieee.org/document/9350236)  No code  
   发表刊物: IEEE Transactions on Image Processing, 2021
-  
-1. Object Tracking in Satellite Videos Based on Convolutional Regression Network With Appearance and Motion Features  
-  [[Paper]](https://ieeexplore.ieee.org/document/8994098)  No code  
-  发表刊物: IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, 2020
-  
-3. Object Tracking on Satellite Videos: A Correlation Filter-Based Tracking Method With Trajectory Correction by Kalman Filter  
-  [[Paper]](https://ieeexplore.ieee.org/document/8809377)  No code  
-  发表刊物: IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, 2019
   
 7. **MBLT**: Learning Motion and Background for Vehicle Tracking in Satellite Videos  
   [[Paper]](https://ieeexplore.ieee.org/abstract/document/9533178)  No code  
@@ -104,13 +129,21 @@
   [[Paper]](https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/ipr2.12170)  No code  
   发表刊物: IET Image Processing, 2021
   
-17. Object Tracking in Satellite Videos by Improved Correlation Filters With Motion Estimations  
-  [[Paper]](https://ieeexplore.ieee.org/document/8880656)  No code  
-  发表刊物: IEEE Transactions on Geoscience and Remote Sensing, 2019
-  
+1. Object Tracking in Satellite Videos Based on Convolutional Regression Network With Appearance and Motion Features  
+  [[Paper]](https://ieeexplore.ieee.org/document/8994098)  No code  
+  发表刊物: IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, 2020
+
 19. Small Target Tracking in Satellite Videos Using Background Compensation  
   [[Paper]](https://ieeexplore.ieee.org/document/9044613)  No code  
   发表刊物: IEEE Transactions on Geoscience and Remote Sensing, 2020
+  
+3. Object Tracking on Satellite Videos: A Correlation Filter-Based Tracking Method With Trajectory Correction by Kalman Filter  
+  [[Paper]](https://ieeexplore.ieee.org/document/8809377)  No code  
+  发表刊物: IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, 2019
+
+17. Object Tracking in Satellite Videos by Improved Correlation Filters With Motion Estimations  
+  [[Paper]](https://ieeexplore.ieee.org/document/8880656)  No code  
+  发表刊物: IEEE Transactions on Geoscience and Remote Sensing, 2019
   
 21. Tracking Objects From Satellite Videos: A Velocity Feature Based Correlation Filter  
   [[Paper]](https://ieeexplore.ieee.org/document/8736008)  No code  
@@ -127,34 +160,7 @@
 27. Object Tracking in Satellite Videos by Fusing the Kernel Correlation Filter and the Three-Frame-Difference Algorithm  
   [[Paper]](https://ieeexplore.ieee.org/document/8225723)  No code  
   发表刊物: IEEE Geoscience and Remote Sensing Letters, 2017
-  
-29. Object Tracking Based on Satellite Videos: A Literature Review  
-  [[Paper]](https://www.mdpi.com/2072-4292/14/15/3674)  No code  
-  发表刊物: Remote Sens, 2022
-  
-31. Object Tracking in Satellite Videos Based on Improved Kernel Correlation Filter Assisted by Road Information  
-  [[Paper]](https://www.mdpi.com/2072-4292/14/17/4215)  No code  
-  发表刊物: Remote Sens, 2022
-  
-35. Vehicle Tracking on Satellite Video Based on Historical Model  
-  [[Paper]](https://ieeexplore.ieee.org/abstract/document/9847077)  No code  
-  发表刊物: IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, 2022
-  
-37. **SiamMDM**: An Adaptive Fusion Network With Dynamic Template for Real-Time Satellite Video Single Object Tracking  
-  [[Paper]](https://ieeexplore.ieee.org/abstract/document/10113336)  No code  
-  发表刊物: IEEE Transactions on Geoscience and Remote Sensing, 2023
-  
-39. Object Tracking in Satellite Videos: A Spatial-Temporal Regularized Correlation Filter Tracking Method With Interacting Multiple Model  
-  [[Paper]](https://ieeexplore.ieee.org/abstract/document/9786761)  No code  
-  发表刊物: IEEE Geoscience and Remote Sensing Letters, 2022
-  
-41. Object Tracking in Satellite Videos: Correlation Particle Filter Tracking Method With Motion Estimation by Kalman Filter  
-  [[Paper]](https://ieeexplore.ieee.org/abstract/document/9875357)  No code  
-  发表刊物: IEEE Transactions on Geoscience and Remote Sensing, 2022
-  
-43. Object Tracking in Satellite Videos Based on Siamese Network With Multidimensional Information-Aware and Temporal Motion Compensation  
-  [[Paper]](https://ieeexplore.ieee.org/abstract/document/9908539)  No code  
-  发表刊物: IEEE Geoscience and Remote Sensing Letters, 2022
+
 
 ### MOT
 ### 运动目标检测
