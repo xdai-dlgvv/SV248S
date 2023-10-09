@@ -1,0 +1,14 @@
+title: VOT2013 challenge
+url: http://www.votchallenge.net/vot2013/
+dataset: vot:vot2013
+deprecated: True
+experiments:
+  baseline:
+    type: supervised
+    repetitions: 15
+    skip_initialize: 5
+    analyses:
+      - type: supervised_average_ar
+        sensitivity: 30
+    # TODO: missing experiments
+

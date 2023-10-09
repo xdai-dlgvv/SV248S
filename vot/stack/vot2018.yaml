@@ -1,0 +1,15 @@
+title: VOT-ST2018 challenge
+dataset: vot:vot-st2018
+url: http://www.votchallenge.net/vot2018/
+experiments:
+  unsupervised_shake:
+    type: unsupervised_shake
+    repetitions: 6
+    shake_rate: 0.3
+    analyses:
+      - type: average_OSLE
+  unsupervised:
+    type: unsupervised
+    repetitions: 3
+    analyses:
+      - type: average_OSLE

@@ -1,0 +1,10 @@
+title: OTB100
+dataset: otb:otb100
+experiments:
+  unsupervised:
+    type: unsupervised
+    repetitions: 1
+    analyses:
+      - type: average_accuracy
+        name: accuracy
+        burnin: 1

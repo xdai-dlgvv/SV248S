@@ -1,0 +1,15 @@
+title: SV248S-test
+dataset: sv248s
+url:
+experiments:
+  # unsupervised_shake:
+  #   type: unsupervised_shake
+  #   repetitions: 6
+  #   shake_rate: 0.3
+  #   analyses:
+  #     - type: average_OSLE
+  unsupervised:
+    type: unsupervised
+    repetitions: 2
+    analyses:
+      - type: average_OSLE
