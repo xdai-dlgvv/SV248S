@@ -3,13 +3,35 @@ dataset: sv248s
 url:
 experiments:
   # unsupervised_shake:
-  #   type: unsupervised_shake
-  #   repetitions: 6
-  #   shake_rate: 0.3
-  #   analyses:
-  #     - type: average_OSLE
+    # type: unsupervised_shake
+    # repetitions: 6
+    # shake_rate: 0.3
+    # analyses:
+#    - type: average_Recall
+#    - type: average_Recallplot
+#    - type: average_EIoU
+#    - type: average_EIoUplot
+#    - type: average_ENUS05
+#    - type: average_ENUS1
+#    - type: average_ENUS1plot
+#    - type: average_ENUS2
+    # - type: average_ERecall
+#    - type: average_accuracy
+#      name: accuracy
+#      burnin: 1
   unsupervised:
     type: unsupervised
-    repetitions: 2
+    repetitions: 1
     analyses:
-      - type: average_OSLE
+#    - type: average_Recall
+#    - type: average_Recallplot
+#    - type: average_EIoU
+#    - type: average_EIoUplot
+#    - type: average_ENUS05
+#    - type: average_ENUS1
+#    - type: average_ENUS1plot
+#    - type: average_ENUS2
+    - type: average_ERecall
+#    - type: average_accuracy
+#      name: accuracy
+#      burnin: 1

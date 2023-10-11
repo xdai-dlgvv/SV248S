@@ -56,7 +56,7 @@ class SV248SSequence(BaseSequence):
 
         self._metadata["width"], self._metadata["height"] = six.next(six.itervalues(channels)).size
 
-        groundtruth_file = self._anno_dir + '.rect'
+        groundtruth_file = self._anno_dir + '.poly'
 
         with open(groundtruth_file, 'r') as filehandle:
             for region in filehandle.readlines():

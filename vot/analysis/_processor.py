@@ -602,7 +602,7 @@ class AnalysisProcessor(object):
         return processor.run(analysis, experiment, trackers, sequences)
 
 
-def process_stack_analyses(workspace: "Workspace", trackers: List[Tracker]):
+def process_stack_analyses(workspace: "Workspace", trackers: List[Tracker], order_exp_analysis=None):
 
     processor = AnalysisProcessor.default()
 
@@ -632,6 +632,10 @@ def process_stack_analyses(workspace: "Workspace", trackers: List[Tracker]):
         sequences = [experiment.transform(sequence) for sequence in workspace.dataset]
 
         for analysis in experiment.analyses:
+            if order_exp_analysis is not None:
+                exp, ana = order_exp_analysis.split(':')
+                if exp != experiment.identifier or ana != analysis.title:
+                    continue
 
             if not analysis.compatible(experiment):
                 continue

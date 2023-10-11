@@ -108,4 +108,4 @@ class Special(Region):
 from vot.region.io import read_file, write_file
 from .shapes import Rectangle, Polygon, Mask
 from .io import read_file, write_file, parse
-from .raster import calculate_overlap, calculate_overlaps, calculate_location_err, calculate_location_errs
+from .raster import calculate_overlap, calculate_overlaps, calculate_location_err, calculate_location_errs, calculate_ps, calculate_rs

@@ -225,6 +225,76 @@ def _calculate_overlap(a: np.ndarray, b: np.ndarray, at: int, bt: int, ao: Optio
 
     return float(intersection) / float(union_) if union_ > 0 else float(0)
 
+@numba.njit(cache=True)
+def _calculate_p(a: np.ndarray, b: np.ndarray, at: int, bt: int, ao: Optional[Tuple[int, int]] = None,
+        bo: Optional[Tuple[int, int]] = None, bounds: Optional[Tuple[int, int]] = None):
+
+    bounds1 = _region_bounds(a, at, ao)
+    bounds2 = _region_bounds(b, bt, bo)
+
+    union = (min(bounds1[0], bounds2[0]), min(bounds1[1], bounds2[1]), max(bounds1[2], bounds2[2]), max(bounds1[3], bounds2[3]))
+
+    if not bounds is None:
+        raster_bounds = (max(0, union[0]), max(0, union[1]), min(bounds[0] - 1, union[2]), min(bounds[1] - 1, union[3]))
+    else:
+        raster_bounds = union
+
+    if raster_bounds[0] >= raster_bounds[2] or raster_bounds[1] >= raster_bounds[3]:
+        return float(0)
+
+    m1 = _region_raster(a, raster_bounds, at, ao)
+    m2 = _region_raster(b, raster_bounds, bt, bo)
+
+    a1 = m1.ravel()
+    a2 = m2.ravel()
+
+    intersection = 0
+    union_ = 0
+
+    for i in range(a1.size):
+        # if a1[i] != 0 or a2[i] != 0:
+        if a1[i] != 0:
+            union_ += 1
+        if a1[i] != 0 and a2[i] != 0:
+            intersection += 1
+
+    return float(intersection) / float(union_) if union_ > 0 else float(0)
+
+@numba.njit(cache=True)
+def _calculate_r(a: np.ndarray, b: np.ndarray, at: int, bt: int, ao: Optional[Tuple[int, int]] = None,
+        bo: Optional[Tuple[int, int]] = None, bounds: Optional[Tuple[int, int]] = None):
+
+    bounds1 = _region_bounds(a, at, ao)
+    bounds2 = _region_bounds(b, bt, bo)
+
+    union = (min(bounds1[0], bounds2[0]), min(bounds1[1], bounds2[1]), max(bounds1[2], bounds2[2]), max(bounds1[3], bounds2[3]))
+
+    if not bounds is None:
+        raster_bounds = (max(0, union[0]), max(0, union[1]), min(bounds[0] - 1, union[2]), min(bounds[1] - 1, union[3]))
+    else:
+        raster_bounds = union
+
+    if raster_bounds[0] >= raster_bounds[2] or raster_bounds[1] >= raster_bounds[3]:
+        return float(0)
+
+    m1 = _region_raster(a, raster_bounds, at, ao)
+    m2 = _region_raster(b, raster_bounds, bt, bo)
+
+    a1 = m1.ravel()
+    a2 = m2.ravel()
+
+    intersection = 0
+    union_ = 0
+
+    for i in range(a1.size):
+        # if a1[i] != 0 or a2[i] != 0:
+        if a2[i] != 0:
+            union_ += 1
+        if a1[i] != 0 and a2[i] != 0:
+            intersection += 1
+
+    return float(intersection) / float(union_) if union_ > 0 else float(0)
+
 from vot.region import Region, RegionException
 from vot.region.shapes import Shape, Rectangle, Polygon, Mask
 
@@ -266,6 +336,82 @@ def calculate_overlap(reg1: Shape, reg2: Shape, bounds: Optional[Tuple[int, int]
 
     return _calculate_overlap(data1, data2, type1, type2, offset1, offset2, bounds)
 
+def calculate_p(reg1: Shape, reg2: Shape, bounds: Optional[Tuple[int, int]] = None):
+    """
+    Inputs: reg1 and reg2 are Region objects (Rectangle, Polygon or Mask)
+    bounds: size of the image, format: [width, height]
+    function first rasterizes both regions to 2-D binary masks and calculates overlap between them
+    """
+
+    if not isinstance(reg1, Shape) or not isinstance(reg2, Shape):
+        return float(0)
+
+    if isinstance(reg1, Rectangle):
+        data1 = np.round(reg1._data)
+        offset1 = (0, 0)
+        type1 = _TYPE_RECTANGLE
+    elif isinstance(reg1, Polygon):
+        data1 = np.round(reg1._points)
+        offset1 = (0, 0)
+        type1 = _TYPE_POLYGON
+    elif isinstance(reg1, Mask):
+        data1 = reg1.mask
+        offset1 = reg1.offset
+        type1 = _TYPE_MASK
+
+    if isinstance(reg2, Rectangle):
+        data2 = np.round(reg2._data)
+        offset2 = (0, 0)
+        type2 = _TYPE_RECTANGLE
+    elif isinstance(reg2, Polygon):
+        data2 = np.round(reg2._points)
+        offset2 = (0, 0)
+        type2 = _TYPE_POLYGON
+    elif isinstance(reg2, Mask):
+        data2 = reg2.mask
+        offset2 = reg2.offset
+        type2 = _TYPE_MASK
+
+    return _calculate_p(data1, data2, type1, type2, offset1, offset2, bounds)
+
+def calculate_r(reg1: Shape, reg2: Shape, bounds: Optional[Tuple[int, int]] = None):
+    """
+    Inputs: reg1 and reg2 are Region objects (Rectangle, Polygon or Mask)
+    bounds: size of the image, format: [width, height]
+    function first rasterizes both regions to 2-D binary masks and calculates overlap between them
+    """
+
+    if not isinstance(reg1, Shape) or not isinstance(reg2, Shape):
+        return float(0)
+
+    if isinstance(reg1, Rectangle):
+        data1 = np.round(reg1._data)
+        offset1 = (0, 0)
+        type1 = _TYPE_RECTANGLE
+    elif isinstance(reg1, Polygon):
+        data1 = np.round(reg1._points)
+        offset1 = (0, 0)
+        type1 = _TYPE_POLYGON
+    elif isinstance(reg1, Mask):
+        data1 = reg1.mask
+        offset1 = reg1.offset
+        type1 = _TYPE_MASK
+
+    if isinstance(reg2, Rectangle):
+        data2 = np.round(reg2._data)
+        offset2 = (0, 0)
+        type2 = _TYPE_RECTANGLE
+    elif isinstance(reg2, Polygon):
+        data2 = np.round(reg2._points)
+        offset2 = (0, 0)
+        type2 = _TYPE_POLYGON
+    elif isinstance(reg2, Mask):
+        data2 = reg2.mask
+        offset2 = reg2.offset
+        type2 = _TYPE_MASK
+
+    return _calculate_r(data1, data2, type1, type2, offset1, offset2, bounds)
+
 def calculate_overlaps(first: List[Region], second: List[Region], bounds: Optional[Tuple[int, int]]):
     """
     first and second are lists containing objects of type Region
@@ -275,6 +421,28 @@ def calculate_overlaps(first: List[Region], second: List[Region], bounds: Option
     if not len(first) == len(second):
         raise RegionException("List not of the same size {} != {}".format(len(first), len(second)))
     return [calculate_overlap(pairs[0], pairs[1], bounds=bounds) for i, pairs in enumerate(zip(first, second))]
+
+def calculate_ps(first: List[Region], second: List[Region], bounds: Optional[Tuple[int, int]]):
+    """
+    first and second are lists containing objects of type Region
+    bounds is in the format [width, height]
+    output: list of per-frame overlaps (floats)
+    first: Prediction, second: gt
+    """
+    if not len(first) == len(second):
+        raise RegionException("List not of the same size {} != {}".format(len(first), len(second)))
+    return [calculate_p(pairs[0], pairs[1], bounds=bounds) for i, pairs in enumerate(zip(first, second))]
+
+def calculate_rs(first: List[Region], second: List[Region], bounds: Optional[Tuple[int, int]]):
+    """
+    first and second are lists containing objects of type Region
+    bounds is in the format [width, height]
+    output: list of per-frame overlaps (floats)
+    first: Prediction, second: gt
+    """
+    if not len(first) == len(second):
+        raise RegionException("List not of the same size {} != {}".format(len(first), len(second)))
+    return [calculate_r(pairs[0], pairs[1], bounds=bounds) for i, pairs in enumerate(zip(first, second))]
 
 
 def calculate_location_err(reg1: Shape, reg2: Shape, bounds: Optional[Tuple[int, int]] = None):

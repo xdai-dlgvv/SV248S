@@ -390,6 +390,45 @@ class SequenceAggregator(Analysis): # pylint: disable=W0223
         transformed_results = Grid(len(trackers), 1)
         for i, tracker in enumerate(trackers):
             transformed_results[i, 0] = self.aggregate(tracker, sequences, results.row(i))
+        print(transformed_results)
+        # # write result to csv
+        # import os
+        # import numpy as np
+        # save_root = '/media/midkey/1e0be183-9aeb-4402-97c2-ebb67c51b27c/PycharmProject/vottoolkit-python/output_csv'
+        # exp = self.identifier.split('.')[-1].split('@')[0]
+        # save_root = os.path.join(save_root, exp + '_' + _.identifier)
+        # os.makedirs(save_root, exist_ok=True)
+
+        # for i, tracker in enumerate(trackers):
+        #     write_list = []
+
+        #     tmp_result = results.row(i)
+        #     if 'plot' not in exp:
+        #             for j, sequence in enumerate(sequences):
+        #                 if tmp_result[j, 0] is None:
+        #                     continue
+        #                 if sequence._base.split('/')[-3] == 'all':
+        #                     dataset, seq = sequence._base.split('/')[-1].split('_')
+        #                     write_list.append('{},{},{},{}\n'.format(dataset, seq,
+        #                                                    tmp_result[j, 0][0], len(sequence)))
+        #                 else:
+        #                     write_list.append('{},{},{},{}\n'.format(sequence._base.split('/')[-3], sequence._base.split('/')[-1],
+        #                                            tmp_result[j, 0][0], len(sequence)))
+        #     else:
+
+        #         with open(os.path.join(save_root, tracker.label+'.csv'), 'a+') as f:
+        #             for j, sequence in enumerate(sequences):
+        #                 if tmp_result[j, 0] is None:
+        #                     continue
+        #                 result_grid = tmp_result[j, 0]
+        #                 result_grid = np.around(result_grid, 3)
+        #                 result_grid = list(map(str, result_grid.tolist()))
+        #                 str_write = ','.join(result_grid)
+
+        #                 write_list.append('{},{},{}\n'.format(sequence._base.split('/')[-3], sequence._base.split('/')[-1],
+        #                                            str_write))
+        #     with open(os.path.join(save_root, tracker.label + '.csv'), 'a+') as f:
+        #         f.writelines(write_list)
 
         return transformed_results
 
@@ -398,7 +437,7 @@ class SequenceAggregator(Analysis): # pylint: disable=W0223
         return Axes.TRACKERS
 
 class TrackerSeparableAnalysis(SeparableAnalysis):
-    """Separate analysis into multiple per-tracker tasks, each of them is non-separable.
+    """Separate analysis into multiple per-tracker tasks, each of the   m is non-separable.
     """
 
     @abstractmethod
