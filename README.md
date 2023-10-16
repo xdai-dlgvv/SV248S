@@ -1,3 +1,11 @@
+# Evaluation Tools
+We provide two kinds of evaluation codes for this dataset.
+
+- VOTtookit-based tracking/evaluation framework [Reconstructing in branch dev_tools]
+- [Another third-part evaluation framework](https://github.com/Wprofessor/SV248S_toolkit/tree/main) [Enabled]
+
+NOTE THAT: The third-part evaluation tool is based on the RECTANGLE BOUNDING BOX GROUNDTRUTH, so the ENUS score might be different from the score in original paper.
+
 # Single Object Tracking Dataset - SV248S
 The data in proposed dataset is derived from the [Jilin-1 Video Satellite](http://www.jl1.cn/EWeb/). The resolution of the video is about 0.92 meter. The video captured by the Satellite is 10 FPS however the video we used in this dataset is 25 FPS. The reason is that these open-souce official video are re-encoded with Video Frame Interpolation (VFI). In order to avoid this bad influence on the target pixels as much as possible, we selected 248 good targets which have less effected by VFI from 6 videos.
 
